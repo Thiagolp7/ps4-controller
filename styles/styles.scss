@@ -1,0 +1,134 @@
+@use '_global';
+@use '_components/info-dot';
+
+main {
+  .ps4-controller {
+    width: 100%;
+    height: 709px;
+    display: flex;
+    justify-content: center;
+    .container {
+      max-width: calc(863px + 144px + 200px);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+
+      .description {
+        max-width: 395px;
+        position: relative;
+
+        .circle {
+          width: 144px;
+          height: 144px;
+          border: 40px solid #c8ced7;
+          border-radius: 50%;
+          opacity: 20%;
+          position: absolute;
+          top: 6px;
+          left: -59px;
+          z-index: -1;
+        }
+
+        h2 {
+          font-size: 64px;
+          line-height: 96px;
+          color: #000;
+          font-weight: 600;
+
+          margin-top: 100px;
+
+          span {
+            color: #362ba9;
+          }
+        }
+
+        p {
+          color: #727382;
+          font-size: 16px;
+          font-family: 'Roboto', sans-serif;
+          margin-top: 15px;
+          line-height: 18.75px;
+        }
+
+        .links {
+          margin-top: 35px;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 50px;
+
+          .solid {
+            font-weight: 500;
+            font-size: 16px;
+            padding: 9px 15px;
+            border-radius: 6px;
+            background: #362ba9;
+            color: #fff;
+          }
+
+          .arrow {
+            font-weight: 500;
+            font-size: 16px;
+            padding: 9px 15px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #727382;
+          }
+        }
+      }
+
+      .img-container {
+        width: 787px;
+        height: 100%;
+        position: relative;
+        padding: 0;
+
+        .jostick {
+          width: 557px;
+          height: 590px;
+          position: absolute;
+          z-index: 1;
+          right: 0;
+        }
+
+        .text-ps4 {
+          display: inline-block;
+          font-size: 144px;
+          font-weight: 600;
+          line-height: 216px;
+          color: #362ba9;
+          position: absolute;
+          right: 160px;
+          bottom: 140px;
+        }
+
+        .blue-circle {
+          width: 200px;
+          height: 200px;
+          background: #362ba9;
+          border-radius: 50%;
+          position: absolute;
+          top: 90px;
+          right: 0;
+        }
+
+        & .info-dot:nth-child(4) {
+          position: absolute;
+          right: 500px;
+          top: 222px;
+          z-index: 10;
+        }
+
+        & .info-dot:nth-child(5) {
+          --dot-line-width: 220px;
+          position: absolute;
+          right: 200px;
+          top: 333px;
+          z-index: 10;
+        }
+      }
+    }
+  }
+}

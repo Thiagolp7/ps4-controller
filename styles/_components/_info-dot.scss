@@ -1,0 +1,181 @@
+$blue-500: #3329a0;
+$blue-900: #362ba9;
+
+.info-dot {
+  --blink-dot-size: 30px;
+  --dot-line-width: 120px;
+  --dot-line-height: calc(var(--blink-dot-size) * 20 / 100); // 20% of blink-dot
+
+  display: inline-block;
+
+  .blink-dot {
+    cursor: pointer;
+    width: var(--blink-dot-size);
+    height: var(--blink-dot-size);
+    background: $blue-900;
+    border-radius: 50%;
+    position: relative;
+    top: 50%;
+    right: 0;
+    filter: blur(0.6px);
+
+    &::before {
+      content: '';
+      width: inherit;
+      height: inherit;
+      border-radius: inherit;
+      background: $blue-500;
+      opacity: 30%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+      padding: 0;
+      filter: blur(0.7px);
+      animation: dotBeforePulsing 2s infinite;
+    }
+
+    &::after {
+      content: '';
+      width: inherit;
+      height: inherit;
+      border-radius: inherit;
+      background: $blue-500;
+      opacity: 15%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+      padding: 0;
+      filter: blur(1px);
+      animation: dotAfterPulsing 2s infinite;
+    }
+
+    @keyframes dotBeforePulsing {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.5);
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    @keyframes dotAfterPulsing {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(2);
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    &:hover {
+      &::before,
+      &::after {
+        animation-play-state: paused;
+      }
+
+      .dot-line {
+        width: var(--dot-line-width);
+
+        &.down {
+          height: var(--dot-line-width);
+        }
+        .text {
+          opacity: 100%;
+        }
+      }
+    }
+
+    .dot-line {
+      width: 0;
+      height: var(--dot-line-height);
+      background: $blue-900;
+      position: absolute;
+      top: 50%;
+      right: calc((var(--blink-dot-size) / 2));
+      z-index: 5;
+      transform: translate(0, -50%);
+      transition: 0.4s ease-in;
+      border-radius: calc(var(--dot-line-height) / 2);
+      opacity: 70%;
+
+      &::before {
+        content: '';
+        background: $blue-500;
+        position: absolute;
+        width: calc(100% + 5px);
+        height: calc(var(--dot-line-height) * 1.5);
+        opacity: 30%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        filter: blur(0.7px);
+        border-radius: calc((var(--dot-line-height) * 1.5) / 2);
+      }
+
+      &::after {
+        content: '';
+        background: $blue-500;
+        position: absolute;
+        width: calc(100% + 10px);
+        height: calc(var(--dot-line-height) * 2);
+        opacity: 30%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        filter: blur(1px);
+        border-radius: calc((var(--dot-line-height) * 2) / 2);
+      }
+
+      .text {
+        --text-max-width: 104px;
+        font-size: 12px;
+        color: #8b899e;
+        width: var(--text-max-width);
+        max-width: var(--text-max-width);
+        min-width: var(--text-max-width);
+        position: absolute;
+        left: calc(-1px - var(--text-max-width) - 6px);
+        top: 50%;
+        transform: translate(0, -50%);
+        display: inline;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      &.down {
+        --text-max-height: 36px;
+        width: var(--dot-line-height);
+        height: 0;
+        left: calc((var(--blink-dot-size) / 2));
+        transform: translate(-50%, 0%);
+
+        &::before {
+          height: calc(100% + 5px);
+          width: calc(var(--dot-line-height) * 1.5);
+        }
+
+        &::after {
+          height: calc(100% + 10px);
+          width: calc(var(--dot-line-height) * 2);
+        }
+
+        .text {
+          top: initial;
+          bottom: calc(-1px - var(--text-max-height) - 6px);
+          left: -50%;
+          transform: translate(0, 0);
+        }
+      }
+    }
+  }
+}
