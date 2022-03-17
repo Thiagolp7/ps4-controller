@@ -310,8 +310,10 @@ main .ps4-controller .container .img-container .blue-circle {
   top: 90px;
   right: 0;
   opacity: 0%;
-  -webkit-animation: appear 0.6s forwards ease;
-          animation: appear 0.6s forwards ease;
+  -webkit-animation: appear 1s forwards ease;
+          animation: appear 1s forwards ease;
+  -webkit-animation-delay: 1.6s;
+          animation-delay: 1.6s;
 }
 main .ps4-controller .container .img-container > #dot-1 {
   position: absolute;
