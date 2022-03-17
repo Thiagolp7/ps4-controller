@@ -274,12 +274,17 @@ main .ps4-controller .container .img-container {
   position: relative;
   padding: 0;
 }
-main .ps4-controller .container .img-container .jostick {
+main .ps4-controller .container .img-container .jostick-img {
   width: 557px;
   height: 590px;
   position: absolute;
   z-index: 1;
   right: 0;
+  opacity: 0%;
+  -webkit-animation: imgAppear ease-in-out 1s forwards;
+          animation: imgAppear ease-in-out 1s forwards;
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
 }
 main .ps4-controller .container .img-container .text-ps4 {
   display: inline-block;
@@ -299,18 +304,71 @@ main .ps4-controller .container .img-container .blue-circle {
   position: absolute;
   top: 90px;
   right: 0;
+  opacity: 0%;
+  -webkit-animation: appear 0.6s forwards ease;
+          animation: appear 0.6s forwards ease;
 }
-main .ps4-controller .container .img-container .info-dot:nth-child(4) {
+main .ps4-controller .container .img-container > #dot-1 {
   position: absolute;
   right: 500px;
   top: 222px;
   z-index: 10;
+  opacity: 0%;
+  -webkit-animation: appear 1.5s forwards;
+          animation: appear 1.5s forwards;
+  -webkit-animation-delay: 1.8s;
+          animation-delay: 1.8s;
 }
-main .ps4-controller .container .img-container .info-dot:nth-child(5) {
+main .ps4-controller .container .img-container > #dot-2 {
   --dot-line-width: 220px;
   position: absolute;
   right: 200px;
   top: 333px;
   z-index: 10;
+  opacity: 0%;
+  -webkit-animation: appear 1.5s forwards;
+          animation: appear 1.5s forwards;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+}
+@-webkit-keyframes appear {
+  0% {
+    opacity: 0%;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 100%;
+    transform: scale(1);
+  }
+}
+@keyframes appear {
+  0% {
+    opacity: 0%;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 100%;
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes imgAppear {
+  0% {
+    opacity: 0%;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 100%;
+    transform: scale(1);
+  }
+}
+@keyframes imgAppear {
+  0% {
+    opacity: 0%;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 100%;
+    transform: scale(1);
+  }
 }
 /*# sourceMappingURL=styles.css.map */

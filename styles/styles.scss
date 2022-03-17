@@ -85,12 +85,16 @@ main {
         position: relative;
         padding: 0;
 
-        .jostick {
+        .jostick-img {
           width: 557px;
           height: 590px;
           position: absolute;
           z-index: 1;
           right: 0;
+
+          opacity: 0%;
+          animation: imgAppear ease-in-out 1s forwards;
+          animation-delay: 0.6s;
         }
 
         .text-ps4 {
@@ -112,21 +116,54 @@ main {
           position: absolute;
           top: 90px;
           right: 0;
+
+          opacity: 0%;
+          animation: appear 0.6s forwards ease;
         }
 
-        & .info-dot:nth-child(4) {
+        & > #dot-1 {
           position: absolute;
           right: 500px;
           top: 222px;
           z-index: 10;
+
+          opacity: 0%;
+          animation: appear 1.5s forwards;
+          animation-delay: 1.8s;
         }
 
-        & .info-dot:nth-child(5) {
+        & > #dot-2 {
           --dot-line-width: 220px;
           position: absolute;
           right: 200px;
           top: 333px;
           z-index: 10;
+
+          opacity: 0%;
+          animation: appear 1.5s forwards;
+          animation-delay: 1.5s;
+        }
+
+        @keyframes appear {
+          0% {
+            opacity: 0%;
+            transform: scale(0);
+          }
+          100% {
+            opacity: 100%;
+            transform: scale(1);
+          }
+        }
+
+        @keyframes imgAppear {
+          0% {
+            opacity: 0%;
+            transform: scale(0);
+          }
+          100% {
+            opacity: 100%;
+            transform: scale(1);
+          }
         }
       }
     }
