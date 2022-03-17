@@ -199,23 +199,25 @@ a {
   transform: translate(0, 0);
 }
 
+main {
+  width: 100vw;
+}
 main .ps4-controller {
   width: 100%;
-  height: 709px;
+  max-width: calc(1110px + 2rem);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
-main .ps4-controller .container {
-  max-width: 1207px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-main .ps4-controller .container .description {
+main .ps4-controller .description {
   max-width: 395px;
   position: relative;
+  align-self: flex-start;
 }
-main .ps4-controller .container .description .circle {
+main .ps4-controller .description .circle {
   width: 144px;
   height: 144px;
   border: 40px solid #c8ced7;
@@ -226,31 +228,31 @@ main .ps4-controller .container .description .circle {
   left: -59px;
   z-index: -1;
 }
-main .ps4-controller .container .description h2 {
+main .ps4-controller .description h2 {
   font-size: 64px;
   line-height: 96px;
   color: #000;
   font-weight: 600;
   margin-top: 100px;
 }
-main .ps4-controller .container .description h2 span {
+main .ps4-controller .description h2 span {
   color: #362ba9;
 }
-main .ps4-controller .container .description p {
+main .ps4-controller .description p {
   color: #727382;
   font-size: 16px;
   font-family: "Roboto", sans-serif;
   margin-top: 15px;
   line-height: 18.75px;
 }
-main .ps4-controller .container .description .links {
+main .ps4-controller .description .links {
   margin-top: 35px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 50px;
 }
-main .ps4-controller .container .description .links .solid {
+main .ps4-controller .description .links .solid {
   font-weight: 500;
   font-size: 16px;
   padding: 9px 15px;
@@ -258,7 +260,7 @@ main .ps4-controller .container .description .links .solid {
   background: #362ba9;
   color: #fff;
 }
-main .ps4-controller .container .description .links .arrow {
+main .ps4-controller .description .links .arrow {
   font-weight: 500;
   font-size: 16px;
   padding: 9px 15px;
@@ -268,46 +270,44 @@ main .ps4-controller .container .description .links .arrow {
   gap: 10px;
   color: #727382;
 }
-main .ps4-controller .container .img-container {
-  width: 787px;
+main .ps4-controller .img-container {
+  max-width: 557px;
+  max-height: 590px;
+  position: relative;
+}
+main .ps4-controller .img-container .jostick-img {
+  width: 100%;
   height: 100%;
   position: relative;
-  padding: 0;
-}
-main .ps4-controller .container .img-container .jostick-img {
-  width: 557px;
-  height: 590px;
-  position: absolute;
   z-index: 1;
-  right: 0;
   opacity: 0%;
   -webkit-animation: imgAppear ease-in-out 1s forwards;
           animation: imgAppear ease-in-out 1s forwards;
   -webkit-animation-delay: 0.3s;
           animation-delay: 0.3s;
 }
-main .ps4-controller .container .img-container .text-ps4 {
+main .ps4-controller .img-container .text-ps4 {
   display: inline-block;
   font-size: 144px;
   font-weight: 600;
   line-height: 216px;
   color: #362ba9;
   position: absolute;
-  right: 160px;
-  bottom: 140px;
+  left: 26%;
+  bottom: 5%;
   opacity: 0%;
   -webkit-animation: textAppear 1s forwards ease;
           animation: textAppear 1s forwards ease;
   -webkit-animation-delay: 1.4s;
           animation-delay: 1.4s;
 }
-main .ps4-controller .container .img-container .blue-circle {
+main .ps4-controller .img-container .blue-circle {
   width: 200px;
   height: 200px;
   background: #362ba9;
   border-radius: 50%;
   position: absolute;
-  top: 90px;
+  top: 10%;
   right: 0;
   opacity: 0%;
   -webkit-animation: appear 1s forwards ease;
@@ -315,10 +315,10 @@ main .ps4-controller .container .img-container .blue-circle {
   -webkit-animation-delay: 1.6s;
           animation-delay: 1.6s;
 }
-main .ps4-controller .container .img-container > #dot-1 {
+main .ps4-controller .img-container > #dot-1 {
   position: absolute;
-  right: 500px;
-  top: 222px;
+  top: 35%;
+  left: 7%;
   z-index: 10;
   opacity: 0%;
   -webkit-animation: appear 1.5s forwards;
@@ -326,37 +326,17 @@ main .ps4-controller .container .img-container > #dot-1 {
   -webkit-animation-delay: 2s;
           animation-delay: 2s;
 }
-main .ps4-controller .container .img-container > #dot-2 {
-  --dot-line-width: 220px;
+main .ps4-controller .img-container > #dot-2 {
+  --dot-line-width: 190px;
   position: absolute;
-  right: 200px;
-  top: 333px;
+  top: 57%;
+  right: 36%;
   z-index: 10;
   opacity: 0%;
   -webkit-animation: appear 1.5s forwards;
           animation: appear 1.5s forwards;
   -webkit-animation-delay: 1.6s;
           animation-delay: 1.6s;
-}
-@-webkit-keyframes appear {
-  0% {
-    opacity: 0%;
-    transform: scale(0);
-  }
-  100% {
-    opacity: 100%;
-    transform: scale(1);
-  }
-}
-@keyframes appear {
-  0% {
-    opacity: 0%;
-    transform: scale(0);
-  }
-  100% {
-    opacity: 100%;
-    transform: scale(1);
-  }
 }
 @-webkit-keyframes imgAppear {
   0% {
@@ -396,6 +376,62 @@ main .ps4-controller .container .img-container > #dot-2 {
   100% {
     opacity: 100%;
     transform: translateY(0px);
+  }
+}
+@-webkit-keyframes appear {
+  0% {
+    opacity: 0%;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 100%;
+    transform: scale(1);
+  }
+}
+@keyframes appear {
+  0% {
+    opacity: 0%;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 100%;
+    transform: scale(1);
+  }
+}
+@media screen and (max-width: 1142px) {
+  main .ps4-controller {
+    flex-direction: column;
+  }
+  main .ps4-controller .description {
+    align-self: initial;
+  }
+  main .ps4-controller .img-container {
+    margin-top: 3rem;
+  }
+  main .ps4-controller .img-container > #dot-1 {
+    top: 130px;
+    left: 210px;
+  }
+}
+@media screen and (max-width: 768px) {
+  main .ps4-controller .img-container {
+    margin-top: 3rem;
+  }
+  main .ps4-controller .img-container > #dot-1 {
+    top: 130px;
+    left: 210px;
+  }
+  main .ps4-controller .img-container > #dot-1 .dot-line {
+    width: 100px;
+  }
+  main .ps4-controller .img-container > #dot-1 .dot-line .text {
+    opacity: 100%;
+  }
+  main .ps4-controller .img-container > #dot-2 .dot-line {
+    height: 190px;
+  }
+  main .ps4-controller .img-container > #dot-2 .dot-line .text {
+    opacity: 100%;
   }
 }
 /*# sourceMappingURL=styles.css.map */
